@@ -37,41 +37,6 @@ public class n {
 }
 ```
 
-Добавим ещё подсчётчик времени выполнения программы. 
-
-```cmd
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
-public class n {
-
-    public static void main(String[] args) {
-        long m = System.currentTimeMillis();
-        try {
-            String path = "input.txt";
-            File file = new File(path);
-            Scanner scanner = new Scanner(file);
-            String line = scanner.nextLine();
-            String[] num = line.split(" ");
-
-            int[] lists = new int[num.length];
-            for (int i = 0; i < num.length; i++) {
-                lists[i] = Integer.parseInt(num[i]);
-            }
-            System.out.println("Минимальное число: " + _min(lists));
-            System.out.println("Максимальное число: " + _max(lists));
-            System.out.println("Сумма всех чисел: " + _sum(lists));
-            System.out.println("Произведение всех чисел: " + _mult(lists));
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден.");
-        }
-        System.out.println((double)(System.currentTimeMillis() - m));
-    }
-}
-```
-
 ### _min
 ```cmd
 public static int _min(int[] num) {
@@ -128,7 +93,6 @@ public class n {
 
 
     public static void main(String[] args) {
-        long m = System.currentTimeMillis();
         try {
             String path = "input.txt";
             File file = new File(path);
@@ -148,7 +112,6 @@ public class n {
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден.");
         }
-        System.out.println((double)(System.currentTimeMillis() - m));
     }
 
     public static int _min(int[] num) {
@@ -195,6 +158,56 @@ public class n {
 ```
 Вывод:
 
+Минимальное число: 1
+
+Максимальное число: 5
+
+Сумма всех чисел: 15
+
+Произведение всех чисел: 120
+
+Ввод: 
+```cmd
+0 9 6 5 4 8
+```
+Вывод:
+
+Минимальное число: 0
+
+Максимальное число: 9
+
+Сумма всех чисел: 32
+
+Произведение всех чисел: 0
+
+Ввод:
+```cmd
+9 88 5 4 1 8
+```
+Вывод:
+
+Минимальное число: 1
+
+Максимальное число: 88
+
+Сумма всех чисел: 115
+
+Произведение всех чисел: 126720
+
+Ввод:
+```cmd
+8 7 5 4 52 110000 9 0 8 6 9 5 3 3 3 3 33 3 33 3 4 4 4 5 8 0 90 90 90
+```
+Вывод:
+
+Минимальное число: 0
+
+Максимальное число: 110000
+
+Сумма всех чисел: 110492
+
+Произведение всех чисел: 0
+
 ## Создание теста с 1 млн элементов 
 ```cmd
 import java.io.FileWriter;
@@ -223,6 +236,7 @@ public class tests {
 }
 ```
 Полный файл, созданный с помощью кода выше находится в файле репозитория.
+
 Ввод:
 ```cmd
 858869 656798 928843 525413 513324 456604 ...
@@ -237,18 +251,18 @@ public class tests {
 
 Произведение всех чисел: 0
 
-2111.0
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
+## Время выполнения программы
+Будем использовать этот код, чтобы понять сколько времени выполняется код:
+```cmd
+public class Main {
+    public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+        // Код
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println((endTime - startTime) + " миллисекунд");
+    }
+}
 ```
