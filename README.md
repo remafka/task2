@@ -326,4 +326,7 @@ public class n {
 }
 
 ```
+## График зависимости времени выполнения от кол-ва чисел в файле
+
+
 ![Иллюстрация к проекту](https://github.com/remafka/task2/blob/0a40dc1b74455d22cdb0013d6fa0f317e99e896d/grafic.png)
