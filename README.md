@@ -13,17 +13,17 @@ import java.util.Scanner;
 public class n {
 
     public static void main(String[] args) {
-      
+
         try {
-            String path = "numbers.txt";
+            String path = "input.txt";
             File file = new File(path);
             Scanner scanner = new Scanner(file);
             String line = scanner.nextLine();
             String[] num = line.split(" ");
 
-            int[] lists = new int[num.length];
+            long[] lists = new long[num.length];
             for (int i = 0; i < num.length; i++) {
-                lists[i] = Integer.parseInt(num[i]);
+                lists[i] = Long.parseLong(num[i]);
             }
             System.out.println("Минимальное число: " + _min(lists));
             System.out.println("Максимальное число: " + _max(lists));
@@ -32,55 +32,55 @@ public class n {
 
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден.");
-        }     
+        }
     }
 }
 ```
 
 ### _min
 ```cmd
-public static int _min(int[] num) {
-        int min = num[0];
-        for (int i : num) {
-            if (i < min) {
-                min = i;
-            }
+public static long _min(long[] num) {
+    long min = num[0];
+    for (long i : num) {
+        if (i < min) {
+            min = i;
         }
-        return min;
     }
+    return min;
+}
 ```
 
 ### _max
 ```cmd
-public static int _max(int[] num) {
-        int max = num[0];
-        for (int i : num) {
-            if (i > max) {
-                max = i;
-            }
+public static long _max(long[] num) {
+    long max = num[0];
+    for (long i : num) {
+        if (i > max) {
+            max = i;
         }
-        return max;
     }
+    return max;
+}
 ```
 ### _sum
 ```cmd
-public static int _sum(int[] num) {
-        int sum = 0;
-        for (int i : num) {
-            sum += i;
-        }
-        return sum;
+public static long _sum(long[] num) {
+    long sum = 0;
+    for (long i : num) {
+        sum += i;
     }
+    return sum;
+}
 ```
 ### _mult
 ```cmd
- public static int _mult(int[] num) {
-        int mult = 1;
-        for (int i : num) {
-            mult *= i;
-        }
-        return mult;
+public static long _mult(long[] num) {
+    long mult = 1;
+    for (long i : num) {
+        mult *= i;
     }
+    return mult;
+}
 ```
 ## Полный код:
 
@@ -91,8 +91,8 @@ import java.util.Scanner;
 
 public class n {
 
-
     public static void main(String[] args) {
+
         try {
             String path = "input.txt";
             File file = new File(path);
@@ -100,9 +100,9 @@ public class n {
             String line = scanner.nextLine();
             String[] num = line.split(" ");
 
-            int[] lists = new int[num.length];
+            long[] lists = new long[num.length];
             for (int i = 0; i < num.length; i++) {
-                lists[i] = Integer.parseInt(num[i]);
+                lists[i] = Long.parseLong(num[i]);
             }
             System.out.println("Минимальное число: " + _min(lists));
             System.out.println("Максимальное число: " + _max(lists));
@@ -114,9 +114,9 @@ public class n {
         }
     }
 
-    public static int _min(int[] num) {
-        int min = num[0];
-        for (int i : num) {
+    public static long _min(long[] num) {
+        long min = num[0];
+        for (long i : num) {
             if (i < min) {
                 min = i;
             }
@@ -124,9 +124,9 @@ public class n {
         return min;
     }
 
-    public static int _max(int[] num) {
-        int max = num[0];
-        for (int i : num) {
+    public static long _max(long[] num) {
+        long max = num[0];
+        for (long i : num) {
             if (i > max) {
                 max = i;
             }
@@ -134,22 +134,23 @@ public class n {
         return max;
     }
 
-    public static int _sum(int[] num) {
-        int sum = 0;
-        for (int i : num) {
+    public static long _sum(long[] num) {
+        long sum = 0;
+        for (long i : num) {
             sum += i;
         }
         return sum;
     }
 
-    public static int _mult(int[] num) {
-        int mult = 1;
-        for (int i : num) {
+    public static long _mult(long[] num) {
+        long mult = 1;
+        for (long i : num) {
             mult *= i;
         }
         return mult;
     }
 }
+
 ```
 ## Тесты для проверки корректности:
 Ввод:
@@ -252,17 +253,76 @@ public class tests {
 Произведение всех чисел: 0
 
 ## Время выполнения программы
-Будем использовать этот код, чтобы понять сколько времени выполняется код:
+Будем использовать currentTimeMillis(), чтобы понять сколько времени выполняется код:
+
 ```cmd
-public class Main {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class n {
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        // Код
+
+        try {
+            String path = "input.txt";
+            File file = new File(path);
+            Scanner scanner = new Scanner(file);
+            String line = scanner.nextLine();
+            String[] num = line.split(" ");
+
+            long[] lists = new long[num.length];
+            for (int i = 0; i < num.length; i++) {
+                lists[i] = Long.parseLong(num[i]);
+            }
+            System.out.println("Минимальное число: " + _min(lists));
+            System.out.println("Максимальное число: " + _max(lists));
+            System.out.println("Сумма всех чисел: " + _sum(lists));
+            System.out.println("Произведение всех чисел: " + _mult(lists));
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден.");
         }
-
         long endTime = System.currentTimeMillis();
+        System.out.println("Время выполнения программы: " + (endTime - startTime) + " миллисекунд");
+    }
 
-        System.out.println((endTime - startTime) + " миллисекунд");
+    public static long _min(long[] num) {
+        long min = num[0];
+        for (long i : num) {
+            if (i < min) {
+                min = i;
+            }
+        }
+        return min;
+    }
+
+    public static long _max(long[] num) {
+        long max = num[0];
+        for (long i : num) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
+    public static long _sum(long[] num) {
+        long sum = 0;
+        for (long i : num) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    public static long _mult(long[] num) {
+        long mult = 1;
+        for (long i : num) {
+            mult *= i;
+        }
+        return mult;
     }
 }
+
 ```
