@@ -326,4 +326,4 @@ public class n {
 }
 
 ```
-![Иллюстрация к проекту](https://github.com/remafka/grafic.png)
+![Иллюстрация к проекту](https://github.com/remafka/task2/blob/0a40dc1b74455d22cdb0013d6fa0f317e99e896d/grafic.png)
